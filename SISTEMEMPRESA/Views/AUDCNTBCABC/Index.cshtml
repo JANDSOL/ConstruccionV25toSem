@@ -1,0 +1,76 @@
+﻿@model IEnumerable<SISTEMEMPRESA.Models.AUDCNTBCABC>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutContabilidad.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UsuarioIngreso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaIngreso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AudUsuarioModificacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AudFechaModificacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AudNombreServidor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AudFecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AudAccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CNTBREGCABECERACONT.NombreLote)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UsuarioIngreso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaIngreso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AudUsuarioModificacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AudFechaModificacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AudNombreServidor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AudFecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AudAccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CNTBREGCABECERACONT.NombreLote)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdAudCntbCabC }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdAudCntbCabC }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdAudCntbCabC })
+        </td>
+    </tr>
+}
+
+</table>

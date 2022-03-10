@@ -1,0 +1,86 @@
+﻿@model IEnumerable<SISTEMEMPRESA.Models.CNTBREGCABECERACONT>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutContabilidad.cshtml";
+}
+
+<h2>Cabeceras Contables</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdCntbRegCabeceraCont)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.periodo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreLote)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalDebe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalHaber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstadoContable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.observacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UsuarioSistema)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdCntbRegCabeceraCont)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.periodo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreLote)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalDebe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalHaber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstadoContable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.observacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UsuarioSistema)
+        </td>
+        <td>
+            @Html.ActionLink("Actualizar", "Edit", new { id=item.IdCntbRegCabeceraCont }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.IdCntbRegCabeceraCont }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.IdCntbRegCabeceraCont })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Salir", "Index", "ModCont")
+</div>

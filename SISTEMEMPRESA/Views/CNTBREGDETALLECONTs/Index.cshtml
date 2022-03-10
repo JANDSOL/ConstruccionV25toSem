@@ -1,0 +1,104 @@
+﻿@model IEnumerable<SISTEMEMPRESA.Models.CNTBREGDETALLECONT>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutContabilidad.cshtml";
+}
+
+<h2>Detalles Contables</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SecuenciaDetalle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.periodo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdCntbRegCabeceraCont)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdCntbPlanDeCuenta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GlosaContable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaContable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.afectacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.monto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UsuarioSistema)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.CNTBPLANDECUENTA.detalle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CNTBREGCABECERACONT.NombreLote)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SecuenciaDetalle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.periodo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdCntbRegCabeceraCont)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdCntbPlanDeCuenta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GlosaContable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaContable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.afectacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.monto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UsuarioSistema)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.CNTBPLANDECUENTA.detalle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CNTBREGCABECERACONT.NombreLote)
+        </td>*@
+        <td>
+            @Html.ActionLink("Actualizar", "Edit", new { id=item.IdCntbRegDetalleCont }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.IdCntbRegDetalleCont }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.IdCntbRegDetalleCont })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Salir", "Index", "ModCont")
+</div>

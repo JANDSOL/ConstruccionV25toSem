@@ -1,0 +1,932 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SISTEMAEMPRESAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AUDCNTBCABC">
+          <Key>
+            <PropertyRef Name="IdAudCntbCabC" />
+          </Key>
+          <Property Name="IdAudCntbCabC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCntbRegCabeceraCont" Type="int" />
+          <Property Name="UsuarioIngreso" Type="varchar" MaxLength="15" />
+          <Property Name="FechaIngreso" Type="date" />
+          <Property Name="AudUsuarioModificacion" Type="varchar" MaxLength="15" />
+          <Property Name="AudFechaModificacion" Type="date" />
+          <Property Name="AudNombreServidor" Type="varchar" MaxLength="80" />
+          <Property Name="AudFecha" Type="date" />
+          <Property Name="AudAccion" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="AUDCNTBDETC">
+          <Key>
+            <PropertyRef Name="IdAudCntbDetC" />
+          </Key>
+          <Property Name="IdAudCntbDetC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCntbRegDetalleCont" Type="int" />
+          <Property Name="UsuarioIngreso" Type="varchar" MaxLength="15" />
+          <Property Name="FechaIngreso" Type="date" />
+          <Property Name="AudUsuarioModificacion" Type="varchar" MaxLength="15" />
+          <Property Name="AudFechaModificacion" Type="date" />
+          <Property Name="AudNombreServidor" Type="varchar" MaxLength="80" />
+          <Property Name="AudFecha" Type="date" />
+          <Property Name="AudAccion" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="CNTBPLANDECUENTA">
+          <Key>
+            <PropertyRef Name="IdCntbPlanDeCuenta" />
+          </Key>
+          <Property Name="IdCntbPlanDeCuenta" Type="int" Nullable="false" />
+          <Property Name="periodo" Type="smallint" Nullable="false" />
+          <Property Name="detalle" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="naturaleza" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="CNTBREGCABECERACONT">
+          <Key>
+            <PropertyRef Name="IdCntbRegCabeceraCont" />
+          </Key>
+          <Property Name="IdCntbRegCabeceraCont" Type="int" Nullable="false" />
+          <Property Name="periodo" Type="smallint" Nullable="false" />
+          <Property Name="NombreLote" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TotalDebe" Type="decimal" Precision="7" Scale="2" />
+          <Property Name="TotalHaber" Type="decimal" Precision="7" Scale="2" />
+          <Property Name="EstadoContable" Type="varchar" MaxLength="1" />
+          <Property Name="observacion" Type="varchar" MaxLength="200" />
+          <Property Name="estado" Type="varchar" MaxLength="1" />
+          <Property Name="UsuarioSistema" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="CNTBREGDETALLECONT">
+          <Key>
+            <PropertyRef Name="IdCntbRegDetalleCont" />
+          </Key>
+          <Property Name="IdCntbRegDetalleCont" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="periodo" Type="smallint" Nullable="false" />
+          <Property Name="IdCntbRegCabeceraCont" Type="int" />
+          <Property Name="SecuenciaDetalle" Type="int" Nullable="false" />
+          <Property Name="IdCntbPlanDeCuenta" Type="int" />
+          <Property Name="GlosaContable" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FechaContable" Type="date" Nullable="false" />
+          <Property Name="afectacion" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="monto" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="1" />
+          <Property Name="UsuarioSistema" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="CNTBSALDOCONTABLE">
+          <Key>
+            <PropertyRef Name="IdCntbSaldoContable" />
+          </Key>
+          <Property Name="IdCntbSaldoContable" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCntbRegDetalleCont" Type="int" />
+          <Property Name="periodo" Type="smallint" Nullable="false" />
+          <Property Name="NumeroLote" Type="int" Nullable="false" />
+          <Property Name="CuentaContable" Type="int" Nullable="false" />
+          <Property Name="SaldoContableDebe" Type="decimal" Precision="7" Scale="2" />
+          <Property Name="SaldoContableHaber" Type="decimal" Precision="7" Scale="2" />
+          <Property Name="estado" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="SEGDEPARTAMENTO">
+          <Key>
+            <PropertyRef Name="IdSegDepartamento" />
+          </Key>
+          <Property Name="IdSegDepartamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="UsuarioIngreso" Type="varchar" MaxLength="10" />
+          <Property Name="FechaIngreso" Type="date" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="varchar" MaxLength="10" />
+          <Property Name="FechaModificacion" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SEGMODULO">
+          <Key>
+            <PropertyRef Name="IdSegModulo" />
+          </Key>
+          <Property Name="IdSegModulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="detalle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="UsuarioIngreso" Type="varchar" MaxLength="10" />
+          <Property Name="FechaIngreso" Type="date" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="varchar" MaxLength="10" />
+          <Property Name="FechaModificacion" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SEGOPERACION">
+          <Key>
+            <PropertyRef Name="IdSegOperacion" />
+          </Key>
+          <Property Name="IdSegOperacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdSegModulo" Type="int" />
+          <Property Name="detalle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="UsuarioIngreso" Type="varchar" MaxLength="100" />
+          <Property Name="FechaIngreso" Type="date" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="varchar" MaxLength="100" />
+          <Property Name="FechaModificacion" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SEGROL">
+          <Key>
+            <PropertyRef Name="IdSegRol" />
+          </Key>
+          <Property Name="IdSegRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="detalle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="UsuarioIngreso" Type="varchar" MaxLength="10" />
+          <Property Name="FechaIngreso" Type="date" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="varchar" MaxLength="10" />
+          <Property Name="FechaModificacion" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SEGROLOPERACION">
+          <Key>
+            <PropertyRef Name="IdSegRolOperacion" />
+          </Key>
+          <Property Name="IdSegRolOperacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdSegModulo" Type="int" />
+          <Property Name="IdSegRol" Type="int" />
+          <Property Name="IdSegOperacion" Type="int" />
+          <Property Name="UsuarioIngreso" Type="varchar" MaxLength="10" />
+          <Property Name="FechaIngreso" Type="date" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="varchar" MaxLength="10" />
+          <Property Name="FechaModificacion" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SEGUSUARIOSISTEMA">
+          <Key>
+            <PropertyRef Name="IdSegUsuarioSistema" />
+          </Key>
+          <Property Name="IdSegUsuarioSistema" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdSegDepartamento" Type="int" />
+          <Property Name="IdSegRol" Type="int" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="apellido" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="UsuarioSistema" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="clave" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="UsuarioIngreso" Type="varchar" MaxLength="10" />
+          <Property Name="FechaIngreso" Type="date" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="varchar" MaxLength="10" />
+          <Property Name="FechaModificacion" Type="date" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__AUDCNTBCA__IdCnt__5165187F">
+          <End Role="CNTBREGCABECERACONT" Type="Self.CNTBREGCABECERACONT" Multiplicity="0..1" />
+          <End Role="AUDCNTBCABC" Type="Self.AUDCNTBCABC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CNTBREGCABECERACONT">
+              <PropertyRef Name="IdCntbRegCabeceraCont" />
+            </Principal>
+            <Dependent Role="AUDCNTBCABC">
+              <PropertyRef Name="IdCntbRegCabeceraCont" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AUDCNTBDE__IdCnt__5812160E">
+          <End Role="CNTBREGDETALLECONT" Type="Self.CNTBREGDETALLECONT" Multiplicity="0..1" />
+          <End Role="AUDCNTBDETC" Type="Self.AUDCNTBDETC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CNTBREGDETALLECONT">
+              <PropertyRef Name="IdCntbRegDetalleCont" />
+            </Principal>
+            <Dependent Role="AUDCNTBDETC">
+              <PropertyRef Name="IdCntbRegDetalleCont" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CNTBREGDE__IdCnt__4316F928">
+          <End Role="CNTBREGCABECERACONT" Type="Self.CNTBREGCABECERACONT" Multiplicity="0..1" />
+          <End Role="CNTBREGDETALLECONT" Type="Self.CNTBREGDETALLECONT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CNTBREGCABECERACONT">
+              <PropertyRef Name="IdCntbRegCabeceraCont" />
+            </Principal>
+            <Dependent Role="CNTBREGDETALLECONT">
+              <PropertyRef Name="IdCntbRegCabeceraCont" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CNTBREGDE__IdCnt__440B1D61">
+          <End Role="CNTBPLANDECUENTA" Type="Self.CNTBPLANDECUENTA" Multiplicity="0..1" />
+          <End Role="CNTBREGDETALLECONT" Type="Self.CNTBREGDETALLECONT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CNTBPLANDECUENTA">
+              <PropertyRef Name="IdCntbPlanDeCuenta" />
+            </Principal>
+            <Dependent Role="CNTBREGDETALLECONT">
+              <PropertyRef Name="IdCntbPlanDeCuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CNTBSALDO__IdCnt__4AB81AF0">
+          <End Role="CNTBREGDETALLECONT" Type="Self.CNTBREGDETALLECONT" Multiplicity="0..1" />
+          <End Role="CNTBSALDOCONTABLE" Type="Self.CNTBSALDOCONTABLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CNTBREGDETALLECONT">
+              <PropertyRef Name="IdCntbRegDetalleCont" />
+            </Principal>
+            <Dependent Role="CNTBSALDOCONTABLE">
+              <PropertyRef Name="IdCntbRegDetalleCont" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SEGOPERAC__IdSeg__300424B4">
+          <End Role="SEGMODULO" Type="Self.SEGMODULO" Multiplicity="0..1" />
+          <End Role="SEGOPERACION" Type="Self.SEGOPERACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEGMODULO">
+              <PropertyRef Name="IdSegModulo" />
+            </Principal>
+            <Dependent Role="SEGOPERACION">
+              <PropertyRef Name="IdSegModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SEGROLOPE__IdSeg__30F848ED">
+          <End Role="SEGMODULO" Type="Self.SEGMODULO" Multiplicity="0..1" />
+          <End Role="SEGROLOPERACION" Type="Self.SEGROLOPERACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEGMODULO">
+              <PropertyRef Name="IdSegModulo" />
+            </Principal>
+            <Dependent Role="SEGROLOPERACION">
+              <PropertyRef Name="IdSegModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SEGROLOPE__IdSeg__31EC6D26">
+          <End Role="SEGROL" Type="Self.SEGROL" Multiplicity="0..1" />
+          <End Role="SEGROLOPERACION" Type="Self.SEGROLOPERACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEGROL">
+              <PropertyRef Name="IdSegRol" />
+            </Principal>
+            <Dependent Role="SEGROLOPERACION">
+              <PropertyRef Name="IdSegRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SEGROLOPE__IdSeg__32E0915F">
+          <End Role="SEGOPERACION" Type="Self.SEGOPERACION" Multiplicity="0..1" />
+          <End Role="SEGROLOPERACION" Type="Self.SEGROLOPERACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEGOPERACION">
+              <PropertyRef Name="IdSegOperacion" />
+            </Principal>
+            <Dependent Role="SEGROLOPERACION">
+              <PropertyRef Name="IdSegOperacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SEGUSUARI__IdSeg__33D4B598">
+          <End Role="SEGDEPARTAMENTO" Type="Self.SEGDEPARTAMENTO" Multiplicity="0..1" />
+          <End Role="SEGUSUARIOSISTEMA" Type="Self.SEGUSUARIOSISTEMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEGDEPARTAMENTO">
+              <PropertyRef Name="IdSegDepartamento" />
+            </Principal>
+            <Dependent Role="SEGUSUARIOSISTEMA">
+              <PropertyRef Name="IdSegDepartamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SEGUSUARI__IdSeg__34C8D9D1">
+          <End Role="SEGROL" Type="Self.SEGROL" Multiplicity="0..1" />
+          <End Role="SEGUSUARIOSISTEMA" Type="Self.SEGUSUARIOSISTEMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEGROL">
+              <PropertyRef Name="IdSegRol" />
+            </Principal>
+            <Dependent Role="SEGUSUARIOSISTEMA">
+              <PropertyRef Name="IdSegRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SISTEMAEMPRESAModelStoreContainer">
+          <EntitySet Name="AUDCNTBCABC" EntityType="Self.AUDCNTBCABC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AUDCNTBDETC" EntityType="Self.AUDCNTBDETC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CNTBPLANDECUENTA" EntityType="Self.CNTBPLANDECUENTA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CNTBREGCABECERACONT" EntityType="Self.CNTBREGCABECERACONT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CNTBREGDETALLECONT" EntityType="Self.CNTBREGDETALLECONT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CNTBSALDOCONTABLE" EntityType="Self.CNTBSALDOCONTABLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SEGDEPARTAMENTO" EntityType="Self.SEGDEPARTAMENTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SEGMODULO" EntityType="Self.SEGMODULO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SEGOPERACION" EntityType="Self.SEGOPERACION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SEGROL" EntityType="Self.SEGROL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SEGROLOPERACION" EntityType="Self.SEGROLOPERACION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SEGUSUARIOSISTEMA" EntityType="Self.SEGUSUARIOSISTEMA" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__AUDCNTBCA__IdCnt__5165187F" Association="Self.FK__AUDCNTBCA__IdCnt__5165187F">
+            <End Role="CNTBREGCABECERACONT" EntitySet="CNTBREGCABECERACONT" />
+            <End Role="AUDCNTBCABC" EntitySet="AUDCNTBCABC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AUDCNTBDE__IdCnt__5812160E" Association="Self.FK__AUDCNTBDE__IdCnt__5812160E">
+            <End Role="CNTBREGDETALLECONT" EntitySet="CNTBREGDETALLECONT" />
+            <End Role="AUDCNTBDETC" EntitySet="AUDCNTBDETC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CNTBREGDE__IdCnt__4316F928" Association="Self.FK__CNTBREGDE__IdCnt__4316F928">
+            <End Role="CNTBREGCABECERACONT" EntitySet="CNTBREGCABECERACONT" />
+            <End Role="CNTBREGDETALLECONT" EntitySet="CNTBREGDETALLECONT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CNTBREGDE__IdCnt__440B1D61" Association="Self.FK__CNTBREGDE__IdCnt__440B1D61">
+            <End Role="CNTBPLANDECUENTA" EntitySet="CNTBPLANDECUENTA" />
+            <End Role="CNTBREGDETALLECONT" EntitySet="CNTBREGDETALLECONT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CNTBSALDO__IdCnt__4AB81AF0" Association="Self.FK__CNTBSALDO__IdCnt__4AB81AF0">
+            <End Role="CNTBREGDETALLECONT" EntitySet="CNTBREGDETALLECONT" />
+            <End Role="CNTBSALDOCONTABLE" EntitySet="CNTBSALDOCONTABLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SEGOPERAC__IdSeg__300424B4" Association="Self.FK__SEGOPERAC__IdSeg__300424B4">
+            <End Role="SEGMODULO" EntitySet="SEGMODULO" />
+            <End Role="SEGOPERACION" EntitySet="SEGOPERACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SEGROLOPE__IdSeg__30F848ED" Association="Self.FK__SEGROLOPE__IdSeg__30F848ED">
+            <End Role="SEGMODULO" EntitySet="SEGMODULO" />
+            <End Role="SEGROLOPERACION" EntitySet="SEGROLOPERACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SEGROLOPE__IdSeg__31EC6D26" Association="Self.FK__SEGROLOPE__IdSeg__31EC6D26">
+            <End Role="SEGROL" EntitySet="SEGROL" />
+            <End Role="SEGROLOPERACION" EntitySet="SEGROLOPERACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SEGROLOPE__IdSeg__32E0915F" Association="Self.FK__SEGROLOPE__IdSeg__32E0915F">
+            <End Role="SEGOPERACION" EntitySet="SEGOPERACION" />
+            <End Role="SEGROLOPERACION" EntitySet="SEGROLOPERACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SEGUSUARI__IdSeg__33D4B598" Association="Self.FK__SEGUSUARI__IdSeg__33D4B598">
+            <End Role="SEGDEPARTAMENTO" EntitySet="SEGDEPARTAMENTO" />
+            <End Role="SEGUSUARIOSISTEMA" EntitySet="SEGUSUARIOSISTEMA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SEGUSUARI__IdSeg__34C8D9D1" Association="Self.FK__SEGUSUARI__IdSeg__34C8D9D1">
+            <End Role="SEGROL" EntitySet="SEGROL" />
+            <End Role="SEGUSUARIOSISTEMA" EntitySet="SEGUSUARIOSISTEMA" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SISTEMAEMPRESAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="SEGDEPARTAMENTO">
+          <Key>
+            <PropertyRef Name="IdSegDepartamento" />
+          </Key>
+          <Property Name="IdSegDepartamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UsuarioIngreso" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UsuarioModificacion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="SEGUSUARIOSISTEMA" Relationship="Self.FK__SEGUSUARI__IdSeg__286302EC" FromRole="SEGDEPARTAMENTO" ToRole="SEGUSUARIOSISTEMA" />
+        </EntityType>
+        <EntityType Name="SEGMODULO">
+          <Key>
+            <PropertyRef Name="IdSegModulo" />
+          </Key>
+          <Property Name="IdSegModulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="detalle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UsuarioIngreso" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UsuarioModificacion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="SEGOPERACION" Relationship="Self.FK__SEGOPERAC__IdSeg__2E1BDC42" FromRole="SEGMODULO" ToRole="SEGOPERACION" />
+          <NavigationProperty Name="SEGROLOPERACION" Relationship="Self.FK__SEGROLOPE__IdSeg__30F848ED" FromRole="SEGMODULO" ToRole="SEGROLOPERACION" />
+        </EntityType>
+        <EntityType Name="SEGOPERACION">
+          <Key>
+            <PropertyRef Name="IdSegOperacion" />
+          </Key>
+          <Property Name="IdSegOperacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdSegModulo" Type="Int32" />
+          <Property Name="detalle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UsuarioIngreso" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UsuarioModificacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="SEGMODULO" Relationship="Self.FK__SEGOPERAC__IdSeg__2E1BDC42" FromRole="SEGOPERACION" ToRole="SEGMODULO" />
+          <NavigationProperty Name="SEGROLOPERACION" Relationship="Self.FK__SEGROLOPE__IdSeg__32E0915F" FromRole="SEGOPERACION" ToRole="SEGROLOPERACION" />
+        </EntityType>
+        <EntityType Name="SEGROL">
+          <Key>
+            <PropertyRef Name="IdSegRol" />
+          </Key>
+          <Property Name="IdSegRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="detalle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UsuarioIngreso" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UsuarioModificacion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="SEGROLOPERACION" Relationship="Self.FK__SEGROLOPE__IdSeg__31EC6D26" FromRole="SEGROL" ToRole="SEGROLOPERACION" />
+          <NavigationProperty Name="SEGUSUARIOSISTEMA" Relationship="Self.FK__SEGUSUARI__IdSeg__29572725" FromRole="SEGROL" ToRole="SEGUSUARIOSISTEMA" />
+        </EntityType>
+        <EntityType Name="SEGROLOPERACION">
+          <Key>
+            <PropertyRef Name="IdSegRolOperacion" />
+          </Key>
+          <Property Name="IdSegRolOperacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdSegModulo" Type="Int32" />
+          <Property Name="IdSegRol" Type="Int32" />
+          <Property Name="IdSegOperacion" Type="Int32" />
+          <Property Name="UsuarioIngreso" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UsuarioModificacion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="SEGMODULO" Relationship="Self.FK__SEGROLOPE__IdSeg__30F848ED" FromRole="SEGROLOPERACION" ToRole="SEGMODULO" />
+          <NavigationProperty Name="SEGOPERACION" Relationship="Self.FK__SEGROLOPE__IdSeg__32E0915F" FromRole="SEGROLOPERACION" ToRole="SEGOPERACION" />
+          <NavigationProperty Name="SEGROL" Relationship="Self.FK__SEGROLOPE__IdSeg__31EC6D26" FromRole="SEGROLOPERACION" ToRole="SEGROL" />
+        </EntityType>
+        <EntityType Name="SEGUSUARIOSISTEMA">
+          <Key>
+            <PropertyRef Name="IdSegUsuarioSistema" />
+          </Key>
+          <Property Name="IdSegUsuarioSistema" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdSegDepartamento" Type="Int32" />
+          <Property Name="IdSegRol" Type="Int32" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UsuarioSistema" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="clave" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UsuarioIngreso" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UsuarioModificacion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="SEGDEPARTAMENTO" Relationship="Self.FK__SEGUSUARI__IdSeg__286302EC" FromRole="SEGUSUARIOSISTEMA" ToRole="SEGDEPARTAMENTO" />
+          <NavigationProperty Name="SEGROL" Relationship="Self.FK__SEGUSUARI__IdSeg__29572725" FromRole="SEGUSUARIOSISTEMA" ToRole="SEGROL" />
+        </EntityType>
+        <Association Name="FK__SEGUSUARI__IdSeg__286302EC">
+          <End Role="SEGDEPARTAMENTO" Type="Self.SEGDEPARTAMENTO" Multiplicity="0..1" />
+          <End Role="SEGUSUARIOSISTEMA" Type="Self.SEGUSUARIOSISTEMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEGDEPARTAMENTO">
+              <PropertyRef Name="IdSegDepartamento" />
+            </Principal>
+            <Dependent Role="SEGUSUARIOSISTEMA">
+              <PropertyRef Name="IdSegDepartamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SEGOPERAC__IdSeg__2E1BDC42">
+          <End Role="SEGMODULO" Type="Self.SEGMODULO" Multiplicity="0..1" />
+          <End Role="SEGOPERACION" Type="Self.SEGOPERACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEGMODULO">
+              <PropertyRef Name="IdSegModulo" />
+            </Principal>
+            <Dependent Role="SEGOPERACION">
+              <PropertyRef Name="IdSegModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SEGROLOPE__IdSeg__30F848ED">
+          <End Role="SEGMODULO" Type="Self.SEGMODULO" Multiplicity="0..1" />
+          <End Role="SEGROLOPERACION" Type="Self.SEGROLOPERACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEGMODULO">
+              <PropertyRef Name="IdSegModulo" />
+            </Principal>
+            <Dependent Role="SEGROLOPERACION">
+              <PropertyRef Name="IdSegModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SEGROLOPE__IdSeg__32E0915F">
+          <End Role="SEGOPERACION" Type="Self.SEGOPERACION" Multiplicity="0..1" />
+          <End Role="SEGROLOPERACION" Type="Self.SEGROLOPERACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEGOPERACION">
+              <PropertyRef Name="IdSegOperacion" />
+            </Principal>
+            <Dependent Role="SEGROLOPERACION">
+              <PropertyRef Name="IdSegOperacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SEGROLOPE__IdSeg__31EC6D26">
+          <End Role="SEGROL" Type="Self.SEGROL" Multiplicity="0..1" />
+          <End Role="SEGROLOPERACION" Type="Self.SEGROLOPERACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEGROL">
+              <PropertyRef Name="IdSegRol" />
+            </Principal>
+            <Dependent Role="SEGROLOPERACION">
+              <PropertyRef Name="IdSegRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SEGUSUARI__IdSeg__29572725">
+          <End Role="SEGROL" Type="Self.SEGROL" Multiplicity="0..1" />
+          <End Role="SEGUSUARIOSISTEMA" Type="Self.SEGUSUARIOSISTEMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEGROL">
+              <PropertyRef Name="IdSegRol" />
+            </Principal>
+            <Dependent Role="SEGUSUARIOSISTEMA">
+              <PropertyRef Name="IdSegRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ConnDbSISTEMAEMPRESA" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SEGDEPARTAMENTO" EntityType="Self.SEGDEPARTAMENTO" />
+          <EntitySet Name="SEGMODULO" EntityType="Self.SEGMODULO" />
+          <EntitySet Name="SEGOPERACION" EntityType="Self.SEGOPERACION" />
+          <EntitySet Name="SEGROL" EntityType="Self.SEGROL" />
+          <EntitySet Name="SEGROLOPERACION" EntityType="Self.SEGROLOPERACION" />
+          <EntitySet Name="SEGUSUARIOSISTEMA" EntityType="Self.SEGUSUARIOSISTEMA" />
+          <AssociationSet Name="FK__SEGUSUARI__IdSeg__286302EC" Association="Self.FK__SEGUSUARI__IdSeg__286302EC">
+            <End Role="SEGDEPARTAMENTO" EntitySet="SEGDEPARTAMENTO" />
+            <End Role="SEGUSUARIOSISTEMA" EntitySet="SEGUSUARIOSISTEMA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SEGOPERAC__IdSeg__2E1BDC42" Association="Self.FK__SEGOPERAC__IdSeg__2E1BDC42">
+            <End Role="SEGMODULO" EntitySet="SEGMODULO" />
+            <End Role="SEGOPERACION" EntitySet="SEGOPERACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SEGROLOPE__IdSeg__30F848ED" Association="Self.FK__SEGROLOPE__IdSeg__30F848ED">
+            <End Role="SEGMODULO" EntitySet="SEGMODULO" />
+            <End Role="SEGROLOPERACION" EntitySet="SEGROLOPERACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SEGROLOPE__IdSeg__32E0915F" Association="Self.FK__SEGROLOPE__IdSeg__32E0915F">
+            <End Role="SEGOPERACION" EntitySet="SEGOPERACION" />
+            <End Role="SEGROLOPERACION" EntitySet="SEGROLOPERACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SEGROLOPE__IdSeg__31EC6D26" Association="Self.FK__SEGROLOPE__IdSeg__31EC6D26">
+            <End Role="SEGROL" EntitySet="SEGROL" />
+            <End Role="SEGROLOPERACION" EntitySet="SEGROLOPERACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SEGUSUARI__IdSeg__29572725" Association="Self.FK__SEGUSUARI__IdSeg__29572725">
+            <End Role="SEGROL" EntitySet="SEGROL" />
+            <End Role="SEGUSUARIOSISTEMA" EntitySet="SEGUSUARIOSISTEMA" />
+          </AssociationSet>
+          <EntitySet Name="AUDCNTBCABC" EntityType="SISTEMAEMPRESAModel.AUDCNTBCABC" />
+          <EntitySet Name="AUDCNTBDETC" EntityType="SISTEMAEMPRESAModel.AUDCNTBDETC" />
+          <EntitySet Name="CNTBPLANDECUENTA" EntityType="SISTEMAEMPRESAModel.CNTBPLANDECUENTA" />
+          <EntitySet Name="CNTBREGCABECERACONT" EntityType="SISTEMAEMPRESAModel.CNTBREGCABECERACONT" />
+          <EntitySet Name="CNTBREGDETALLECONT" EntityType="SISTEMAEMPRESAModel.CNTBREGDETALLECONT" />
+          <EntitySet Name="CNTBSALDOCONTABLE" EntityType="SISTEMAEMPRESAModel.CNTBSALDOCONTABLE" />
+          <AssociationSet Name="FK__AUDCNTBCA__IdCnt__5165187F" Association="SISTEMAEMPRESAModel.FK__AUDCNTBCA__IdCnt__5165187F">
+            <End Role="CNTBREGCABECERACONT" EntitySet="CNTBREGCABECERACONT" />
+            <End Role="AUDCNTBCABC" EntitySet="AUDCNTBCABC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AUDCNTBDE__IdCnt__5812160E" Association="SISTEMAEMPRESAModel.FK__AUDCNTBDE__IdCnt__5812160E">
+            <End Role="CNTBREGDETALLECONT" EntitySet="CNTBREGDETALLECONT" />
+            <End Role="AUDCNTBDETC" EntitySet="AUDCNTBDETC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CNTBREGDE__IdCnt__440B1D61" Association="SISTEMAEMPRESAModel.FK__CNTBREGDE__IdCnt__440B1D61">
+            <End Role="CNTBPLANDECUENTA" EntitySet="CNTBPLANDECUENTA" />
+            <End Role="CNTBREGDETALLECONT" EntitySet="CNTBREGDETALLECONT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CNTBREGDE__IdCnt__4316F928" Association="SISTEMAEMPRESAModel.FK__CNTBREGDE__IdCnt__4316F928">
+            <End Role="CNTBREGCABECERACONT" EntitySet="CNTBREGCABECERACONT" />
+            <End Role="CNTBREGDETALLECONT" EntitySet="CNTBREGDETALLECONT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CNTBSALDO__IdCnt__4AB81AF0" Association="SISTEMAEMPRESAModel.FK__CNTBSALDO__IdCnt__4AB81AF0">
+            <End Role="CNTBREGDETALLECONT" EntitySet="CNTBREGDETALLECONT" />
+            <End Role="CNTBSALDOCONTABLE" EntitySet="CNTBSALDOCONTABLE" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AUDCNTBCABC">
+          <Key>
+            <PropertyRef Name="IdAudCntbCabC" />
+          </Key>
+          <Property Name="IdAudCntbCabC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCntbRegCabeceraCont" Type="Int32" />
+          <Property Name="UsuarioIngreso" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="FechaIngreso" Type="DateTime" Precision="0" />
+          <Property Name="AudUsuarioModificacion" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="AudFechaModificacion" Type="DateTime" Precision="0" />
+          <Property Name="AudNombreServidor" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="AudFecha" Type="DateTime" Precision="0" />
+          <Property Name="AudAccion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CNTBREGCABECERACONT" Relationship="SISTEMAEMPRESAModel.FK__AUDCNTBCA__IdCnt__5165187F" FromRole="AUDCNTBCABC" ToRole="CNTBREGCABECERACONT" />
+        </EntityType>
+        <EntityType Name="AUDCNTBDETC">
+          <Key>
+            <PropertyRef Name="IdAudCntbDetC" />
+          </Key>
+          <Property Name="IdAudCntbDetC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCntbRegDetalleCont" Type="Int32" />
+          <Property Name="UsuarioIngreso" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="FechaIngreso" Type="DateTime" Precision="0" />
+          <Property Name="AudUsuarioModificacion" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="AudFechaModificacion" Type="DateTime" Precision="0" />
+          <Property Name="AudNombreServidor" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="AudFecha" Type="DateTime" Precision="0" />
+          <Property Name="AudAccion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CNTBREGDETALLECONT" Relationship="SISTEMAEMPRESAModel.FK__AUDCNTBDE__IdCnt__5812160E" FromRole="AUDCNTBDETC" ToRole="CNTBREGDETALLECONT" />
+        </EntityType>
+        <EntityType Name="CNTBPLANDECUENTA">
+          <Key>
+            <PropertyRef Name="IdCntbPlanDeCuenta" />
+          </Key>
+          <Property Name="IdCntbPlanDeCuenta" Type="Int32" Nullable="false" />
+          <Property Name="periodo" Type="Int16" Nullable="false" />
+          <Property Name="detalle" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="naturaleza" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CNTBREGDETALLECONT" Relationship="SISTEMAEMPRESAModel.FK__CNTBREGDE__IdCnt__440B1D61" FromRole="CNTBPLANDECUENTA" ToRole="CNTBREGDETALLECONT" />
+        </EntityType>
+        <EntityType Name="CNTBREGCABECERACONT">
+          <Key>
+            <PropertyRef Name="IdCntbRegCabeceraCont" />
+          </Key>
+          <Property Name="IdCntbRegCabeceraCont" Type="Int32" Nullable="false" />
+          <Property Name="periodo" Type="Int16" Nullable="false" />
+          <Property Name="NombreLote" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TotalDebe" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="TotalHaber" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="EstadoContable" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="observacion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="UsuarioSistema" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AUDCNTBCABC" Relationship="SISTEMAEMPRESAModel.FK__AUDCNTBCA__IdCnt__5165187F" FromRole="CNTBREGCABECERACONT" ToRole="AUDCNTBCABC" />
+          <NavigationProperty Name="CNTBREGDETALLECONT" Relationship="SISTEMAEMPRESAModel.FK__CNTBREGDE__IdCnt__4316F928" FromRole="CNTBREGCABECERACONT" ToRole="CNTBREGDETALLECONT" />
+        </EntityType>
+        <EntityType Name="CNTBREGDETALLECONT">
+          <Key>
+            <PropertyRef Name="IdCntbRegDetalleCont" />
+          </Key>
+          <Property Name="IdCntbRegDetalleCont" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="periodo" Type="Int16" Nullable="false" />
+          <Property Name="IdCntbRegCabeceraCont" Type="Int32" />
+          <Property Name="SecuenciaDetalle" Type="Int32" Nullable="false" />
+          <Property Name="IdCntbPlanDeCuenta" Type="Int32" />
+          <Property Name="GlosaContable" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FechaContable" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="afectacion" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="monto" Type="Decimal" Nullable="false" Precision="7" Scale="2" />
+          <Property Name="estado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="UsuarioSistema" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AUDCNTBDETC" Relationship="SISTEMAEMPRESAModel.FK__AUDCNTBDE__IdCnt__5812160E" FromRole="CNTBREGDETALLECONT" ToRole="AUDCNTBDETC" />
+          <NavigationProperty Name="CNTBPLANDECUENTA" Relationship="SISTEMAEMPRESAModel.FK__CNTBREGDE__IdCnt__440B1D61" FromRole="CNTBREGDETALLECONT" ToRole="CNTBPLANDECUENTA" />
+          <NavigationProperty Name="CNTBREGCABECERACONT" Relationship="SISTEMAEMPRESAModel.FK__CNTBREGDE__IdCnt__4316F928" FromRole="CNTBREGDETALLECONT" ToRole="CNTBREGCABECERACONT" />
+          <NavigationProperty Name="CNTBSALDOCONTABLE" Relationship="SISTEMAEMPRESAModel.FK__CNTBSALDO__IdCnt__4AB81AF0" FromRole="CNTBREGDETALLECONT" ToRole="CNTBSALDOCONTABLE" />
+        </EntityType>
+        <EntityType Name="CNTBSALDOCONTABLE">
+          <Key>
+            <PropertyRef Name="IdCntbSaldoContable" />
+          </Key>
+          <Property Name="IdCntbSaldoContable" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCntbRegDetalleCont" Type="Int32" />
+          <Property Name="periodo" Type="Int16" Nullable="false" />
+          <Property Name="NumeroLote" Type="Int32" Nullable="false" />
+          <Property Name="CuentaContable" Type="Int32" Nullable="false" />
+          <Property Name="SaldoContableDebe" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="SaldoContableHaber" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="estado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CNTBREGDETALLECONT" Relationship="SISTEMAEMPRESAModel.FK__CNTBSALDO__IdCnt__4AB81AF0" FromRole="CNTBSALDOCONTABLE" ToRole="CNTBREGDETALLECONT" />
+        </EntityType>
+        <Association Name="FK__AUDCNTBCA__IdCnt__5165187F">
+          <End Type="SISTEMAEMPRESAModel.CNTBREGCABECERACONT" Role="CNTBREGCABECERACONT" Multiplicity="0..1" />
+          <End Type="SISTEMAEMPRESAModel.AUDCNTBCABC" Role="AUDCNTBCABC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CNTBREGCABECERACONT">
+              <PropertyRef Name="IdCntbRegCabeceraCont" />
+            </Principal>
+            <Dependent Role="AUDCNTBCABC">
+              <PropertyRef Name="IdCntbRegCabeceraCont" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AUDCNTBDE__IdCnt__5812160E">
+          <End Type="SISTEMAEMPRESAModel.CNTBREGDETALLECONT" Role="CNTBREGDETALLECONT" Multiplicity="0..1" />
+          <End Type="SISTEMAEMPRESAModel.AUDCNTBDETC" Role="AUDCNTBDETC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CNTBREGDETALLECONT">
+              <PropertyRef Name="IdCntbRegDetalleCont" />
+            </Principal>
+            <Dependent Role="AUDCNTBDETC">
+              <PropertyRef Name="IdCntbRegDetalleCont" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CNTBREGDE__IdCnt__440B1D61">
+          <End Type="SISTEMAEMPRESAModel.CNTBPLANDECUENTA" Role="CNTBPLANDECUENTA" Multiplicity="0..1" />
+          <End Type="SISTEMAEMPRESAModel.CNTBREGDETALLECONT" Role="CNTBREGDETALLECONT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CNTBPLANDECUENTA">
+              <PropertyRef Name="IdCntbPlanDeCuenta" />
+            </Principal>
+            <Dependent Role="CNTBREGDETALLECONT">
+              <PropertyRef Name="IdCntbPlanDeCuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CNTBREGDE__IdCnt__4316F928">
+          <End Type="SISTEMAEMPRESAModel.CNTBREGCABECERACONT" Role="CNTBREGCABECERACONT" Multiplicity="0..1" />
+          <End Type="SISTEMAEMPRESAModel.CNTBREGDETALLECONT" Role="CNTBREGDETALLECONT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CNTBREGCABECERACONT">
+              <PropertyRef Name="IdCntbRegCabeceraCont" />
+            </Principal>
+            <Dependent Role="CNTBREGDETALLECONT">
+              <PropertyRef Name="IdCntbRegCabeceraCont" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CNTBSALDO__IdCnt__4AB81AF0">
+          <End Type="SISTEMAEMPRESAModel.CNTBREGDETALLECONT" Role="CNTBREGDETALLECONT" Multiplicity="0..1" />
+          <End Type="SISTEMAEMPRESAModel.CNTBSALDOCONTABLE" Role="CNTBSALDOCONTABLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CNTBREGDETALLECONT">
+              <PropertyRef Name="IdCntbRegDetalleCont" />
+            </Principal>
+            <Dependent Role="CNTBSALDOCONTABLE">
+              <PropertyRef Name="IdCntbRegDetalleCont" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SISTEMAEMPRESAModelStoreContainer" CdmEntityContainer="ConnDbSISTEMAEMPRESA">
+          <EntitySetMapping Name="SEGDEPARTAMENTO">
+            <EntityTypeMapping TypeName="SISTEMAEMPRESAModel.SEGDEPARTAMENTO">
+              <MappingFragment StoreEntitySet="SEGDEPARTAMENTO">
+                <ScalarProperty Name="IdSegDepartamento" ColumnName="IdSegDepartamento" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="UsuarioIngreso" ColumnName="UsuarioIngreso" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SEGMODULO">
+            <EntityTypeMapping TypeName="SISTEMAEMPRESAModel.SEGMODULO">
+              <MappingFragment StoreEntitySet="SEGMODULO">
+                <ScalarProperty Name="IdSegModulo" ColumnName="IdSegModulo" />
+                <ScalarProperty Name="detalle" ColumnName="detalle" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="UsuarioIngreso" ColumnName="UsuarioIngreso" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SEGOPERACION">
+            <EntityTypeMapping TypeName="SISTEMAEMPRESAModel.SEGOPERACION">
+              <MappingFragment StoreEntitySet="SEGOPERACION">
+                <ScalarProperty Name="IdSegOperacion" ColumnName="IdSegOperacion" />
+                <ScalarProperty Name="IdSegModulo" ColumnName="IdSegModulo" />
+                <ScalarProperty Name="detalle" ColumnName="detalle" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="UsuarioIngreso" ColumnName="UsuarioIngreso" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SEGROL">
+            <EntityTypeMapping TypeName="SISTEMAEMPRESAModel.SEGROL">
+              <MappingFragment StoreEntitySet="SEGROL">
+                <ScalarProperty Name="IdSegRol" ColumnName="IdSegRol" />
+                <ScalarProperty Name="detalle" ColumnName="detalle" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="UsuarioIngreso" ColumnName="UsuarioIngreso" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SEGROLOPERACION">
+            <EntityTypeMapping TypeName="SISTEMAEMPRESAModel.SEGROLOPERACION">
+              <MappingFragment StoreEntitySet="SEGROLOPERACION">
+                <ScalarProperty Name="IdSegRolOperacion" ColumnName="IdSegRolOperacion" />
+                <ScalarProperty Name="IdSegModulo" ColumnName="IdSegModulo" />
+                <ScalarProperty Name="IdSegRol" ColumnName="IdSegRol" />
+                <ScalarProperty Name="IdSegOperacion" ColumnName="IdSegOperacion" />
+                <ScalarProperty Name="UsuarioIngreso" ColumnName="UsuarioIngreso" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SEGUSUARIOSISTEMA">
+            <EntityTypeMapping TypeName="SISTEMAEMPRESAModel.SEGUSUARIOSISTEMA">
+              <MappingFragment StoreEntitySet="SEGUSUARIOSISTEMA">
+                <ScalarProperty Name="IdSegUsuarioSistema" ColumnName="IdSegUsuarioSistema" />
+                <ScalarProperty Name="IdSegDepartamento" ColumnName="IdSegDepartamento" />
+                <ScalarProperty Name="IdSegRol" ColumnName="IdSegRol" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="UsuarioSistema" ColumnName="UsuarioSistema" />
+                <ScalarProperty Name="clave" ColumnName="clave" />
+                <ScalarProperty Name="UsuarioIngreso" ColumnName="UsuarioIngreso" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AUDCNTBCABC">
+            <EntityTypeMapping TypeName="SISTEMAEMPRESAModel.AUDCNTBCABC">
+              <MappingFragment StoreEntitySet="AUDCNTBCABC">
+                <ScalarProperty Name="AudAccion" ColumnName="AudAccion" />
+                <ScalarProperty Name="AudFecha" ColumnName="AudFecha" />
+                <ScalarProperty Name="AudNombreServidor" ColumnName="AudNombreServidor" />
+                <ScalarProperty Name="AudFechaModificacion" ColumnName="AudFechaModificacion" />
+                <ScalarProperty Name="AudUsuarioModificacion" ColumnName="AudUsuarioModificacion" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="UsuarioIngreso" ColumnName="UsuarioIngreso" />
+                <ScalarProperty Name="IdCntbRegCabeceraCont" ColumnName="IdCntbRegCabeceraCont" />
+                <ScalarProperty Name="IdAudCntbCabC" ColumnName="IdAudCntbCabC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AUDCNTBDETC">
+            <EntityTypeMapping TypeName="SISTEMAEMPRESAModel.AUDCNTBDETC">
+              <MappingFragment StoreEntitySet="AUDCNTBDETC">
+                <ScalarProperty Name="AudAccion" ColumnName="AudAccion" />
+                <ScalarProperty Name="AudFecha" ColumnName="AudFecha" />
+                <ScalarProperty Name="AudNombreServidor" ColumnName="AudNombreServidor" />
+                <ScalarProperty Name="AudFechaModificacion" ColumnName="AudFechaModificacion" />
+                <ScalarProperty Name="AudUsuarioModificacion" ColumnName="AudUsuarioModificacion" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="UsuarioIngreso" ColumnName="UsuarioIngreso" />
+                <ScalarProperty Name="IdCntbRegDetalleCont" ColumnName="IdCntbRegDetalleCont" />
+                <ScalarProperty Name="IdAudCntbDetC" ColumnName="IdAudCntbDetC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CNTBPLANDECUENTA">
+            <EntityTypeMapping TypeName="SISTEMAEMPRESAModel.CNTBPLANDECUENTA">
+              <MappingFragment StoreEntitySet="CNTBPLANDECUENTA">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="naturaleza" ColumnName="naturaleza" />
+                <ScalarProperty Name="detalle" ColumnName="detalle" />
+                <ScalarProperty Name="periodo" ColumnName="periodo" />
+                <ScalarProperty Name="IdCntbPlanDeCuenta" ColumnName="IdCntbPlanDeCuenta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CNTBREGCABECERACONT">
+            <EntityTypeMapping TypeName="SISTEMAEMPRESAModel.CNTBREGCABECERACONT">
+              <MappingFragment StoreEntitySet="CNTBREGCABECERACONT">
+                <ScalarProperty Name="UsuarioSistema" ColumnName="UsuarioSistema" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="observacion" ColumnName="observacion" />
+                <ScalarProperty Name="EstadoContable" ColumnName="EstadoContable" />
+                <ScalarProperty Name="TotalHaber" ColumnName="TotalHaber" />
+                <ScalarProperty Name="TotalDebe" ColumnName="TotalDebe" />
+                <ScalarProperty Name="NombreLote" ColumnName="NombreLote" />
+                <ScalarProperty Name="periodo" ColumnName="periodo" />
+                <ScalarProperty Name="IdCntbRegCabeceraCont" ColumnName="IdCntbRegCabeceraCont" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CNTBREGDETALLECONT">
+            <EntityTypeMapping TypeName="SISTEMAEMPRESAModel.CNTBREGDETALLECONT">
+              <MappingFragment StoreEntitySet="CNTBREGDETALLECONT">
+                <ScalarProperty Name="UsuarioSistema" ColumnName="UsuarioSistema" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="afectacion" ColumnName="afectacion" />
+                <ScalarProperty Name="FechaContable" ColumnName="FechaContable" />
+                <ScalarProperty Name="GlosaContable" ColumnName="GlosaContable" />
+                <ScalarProperty Name="IdCntbPlanDeCuenta" ColumnName="IdCntbPlanDeCuenta" />
+                <ScalarProperty Name="SecuenciaDetalle" ColumnName="SecuenciaDetalle" />
+                <ScalarProperty Name="IdCntbRegCabeceraCont" ColumnName="IdCntbRegCabeceraCont" />
+                <ScalarProperty Name="periodo" ColumnName="periodo" />
+                <ScalarProperty Name="IdCntbRegDetalleCont" ColumnName="IdCntbRegDetalleCont" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CNTBSALDOCONTABLE">
+            <EntityTypeMapping TypeName="SISTEMAEMPRESAModel.CNTBSALDOCONTABLE">
+              <MappingFragment StoreEntitySet="CNTBSALDOCONTABLE">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="SaldoContableHaber" ColumnName="SaldoContableHaber" />
+                <ScalarProperty Name="SaldoContableDebe" ColumnName="SaldoContableDebe" />
+                <ScalarProperty Name="CuentaContable" ColumnName="CuentaContable" />
+                <ScalarProperty Name="NumeroLote" ColumnName="NumeroLote" />
+                <ScalarProperty Name="periodo" ColumnName="periodo" />
+                <ScalarProperty Name="IdCntbRegDetalleCont" ColumnName="IdCntbRegDetalleCont" />
+                <ScalarProperty Name="IdCntbSaldoContable" ColumnName="IdCntbSaldoContable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<SISTEMEMPRESA.Models.SEGOPERACION>
+
+@{
+    ViewBag.Title = "Operacion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="background-color:midnightblue">
+    <h2 style=" text-align: center; color: whitesmoke; font-family: courier"> REGISTRO DE OPERACIONES</h2>
+</div>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.detalle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SEGMODULO.detalle)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.detalle)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.estado)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SEGMODULO.detalle)
+    </td>
+    <td>
+        @Html.ActionLink("Modificar", "Edit", new { id = item.IdSegOperacion }) |
+        @Html.ActionLink("Detalle", "Details", new { id = item.IdSegOperacion }) |
+        @Html.ActionLink("Eliminar", "Delete", new { id = item.IdSegOperacion })
+    </td>
+</tr>
+}
+
+</table>

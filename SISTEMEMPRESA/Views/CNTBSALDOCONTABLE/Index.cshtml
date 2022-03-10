@@ -1,0 +1,70 @@
+﻿@model IEnumerable<SISTEMEMPRESA.Models.CNTBSALDOCONTABLE>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutContabilidad.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.periodo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumeroLote)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CuentaContable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SaldoContableDebe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SaldoContableHaber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CNTBREGDETALLECONT.GlosaContable)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.periodo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumeroLote)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CuentaContable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SaldoContableDebe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SaldoContableHaber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CNTBREGDETALLECONT.GlosaContable)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdCntbSaldoContable }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdCntbSaldoContable }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdCntbSaldoContable })
+        </td>
+    </tr>
+}
+
+</table>

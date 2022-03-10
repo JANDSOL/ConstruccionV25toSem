@@ -1,0 +1,104 @@
+﻿@model SISTEMEMPRESA.Models.SEGUSUARIOSISTEMA
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>ELIMINAR REGISTRO</h3>
+
+<small style="color:red"><em>NOTA: El registro se eliminará definitivamente</em></small>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioSistema)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioSistema)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clave)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clave)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioIngreso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioIngreso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaIngreso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaIngreso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioModificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioModificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaModificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaModificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SEGDEPARTAMENTO.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SEGDEPARTAMENTO.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SEGROL.detalle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SEGROL.detalle)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="ELIMINAR" class="btn btn-primary" /> |
+            @Html.ActionLink("Volver a lista", "Index")
+        </div>
+    }
+</div>

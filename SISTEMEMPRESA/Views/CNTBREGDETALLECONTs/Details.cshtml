@@ -1,0 +1,114 @@
+﻿@model SISTEMEMPRESA.Models.CNTBREGDETALLECONT
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutContabilidad.cshtml";
+}
+
+<h2>Detalle Del Registro Contable</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SecuenciaDetalle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecuenciaDetalle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.periodo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.periodo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCntbRegCabeceraCont)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdCntbRegCabeceraCont)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCntbPlanDeCuenta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdCntbPlanDeCuenta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GlosaContable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GlosaContable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaContable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaContable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.afectacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.afectacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.monto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.monto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioSistema)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioSistema)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.CNTBPLANDECUENTA.detalle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CNTBPLANDECUENTA.detalle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CNTBREGCABECERACONT.NombreLote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CNTBREGCABECERACONT.NombreLote)
+        </dd>*@
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Actualizar", "Edit", new { id = Model.IdCntbRegDetalleCont }) |
+    @Html.ActionLink("Atras", "Index")
+</p>

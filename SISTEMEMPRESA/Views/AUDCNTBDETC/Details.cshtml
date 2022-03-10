@@ -1,0 +1,83 @@
+﻿@model SISTEMEMPRESA.Models.AUDCNTBDETC
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutContabilidad.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AUDCNTBDETC</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioIngreso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioIngreso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaIngreso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaIngreso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AudUsuarioModificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AudUsuarioModificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AudFechaModificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AudFechaModificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AudNombreServidor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AudNombreServidor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AudFecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AudFecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AudAccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AudAccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CNTBREGDETALLECONT.GlosaContable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CNTBREGDETALLECONT.GlosaContable)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdAudCntbDetC }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
