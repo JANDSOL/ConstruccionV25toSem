@@ -1,0 +1,42 @@
+﻿@model IEnumerable<SISTEMEMPRESA.Models.SEGROL>
+
+@{
+    ViewBag.Title = "Rol";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="background-color:midnightblue">
+    <h2 style=" text-align: center; color: whitesmoke; font-family: courier"> REGISTRO DE ROLES</h2>
+</div>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.detalle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.detalle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado)
+        </td>
+        <td>
+            @Html.ActionLink("Modificar", "Edit", new { id=item.IdSegRol }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.IdSegRol }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.IdSegRol })
+        </td>
+    </tr>
+}
+
+</table>

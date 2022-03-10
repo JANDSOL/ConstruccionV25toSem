@@ -1,0 +1,120 @@
+﻿@model SISTEMEMPRESA.Models.CNTBREGDETALLECONT
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutContabilidad.cshtml";
+}
+
+<h2>Eliminar Registro Contable</h2>
+
+<h4>¿Estas seguro de querer eliminar este registro?</h4>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SecuenciaDetalle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecuenciaDetalle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.periodo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.periodo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCntbRegCabeceraCont)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdCntbRegCabeceraCont)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCntbPlanDeCuenta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdCntbPlanDeCuenta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GlosaContable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GlosaContable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaContable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaContable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.afectacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.afectacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.monto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.monto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioSistema)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioSistema)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.CNTBPLANDECUENTA.detalle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CNTBPLANDECUENTA.detalle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CNTBREGCABECERACONT.NombreLote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CNTBREGCABECERACONT.NombreLote)
+        </dd>*@
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Atras", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bff623b985f64ea99ca335c7cab05e22" Name="Diagram1">
+        <EntityTypeShape EntityType="SISTEMAEMPRESAModel.SEGDEPARTAMENTO" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SISTEMAEMPRESAModel.SEGMODULO" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SISTEMAEMPRESAModel.SEGOPERACION" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SISTEMAEMPRESAModel.SEGROL" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SISTEMAEMPRESAModel.SEGROLOPERACION" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SISTEMAEMPRESAModel.SEGUSUARIOSISTEMA" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="SISTEMAEMPRESAModel.FK__SEGUSUARI__IdSeg__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="SISTEMAEMPRESAModel.FK__SEGOPERAC__IdSeg__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="SISTEMAEMPRESAModel.FK__SEGROLOPE__IdSeg__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="SISTEMAEMPRESAModel.FK__SEGROLOPE__IdSeg__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="SISTEMAEMPRESAModel.FK__SEGROLOPE__IdSeg__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="SISTEMAEMPRESAModel.FK__SEGUSUARI__IdSeg__29572725" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SISTEMAEMPRESAModel.AUDCNTBCABC" Width="1.5" PointX="9.625" PointY="4.875" />
+        <EntityTypeShape EntityType="SISTEMAEMPRESAModel.AUDCNTBDETC" Width="1.5" PointX="14.875" PointY="6.625" />
+        <EntityTypeShape EntityType="SISTEMAEMPRESAModel.CNTBPLANDECUENTA" Width="1.5" PointX="10.375" PointY="1.25" />
+        <EntityTypeShape EntityType="SISTEMAEMPRESAModel.CNTBREGCABECERACONT" Width="1.5" PointX="7.375" PointY="4.875" />
+        <EntityTypeShape EntityType="SISTEMAEMPRESAModel.CNTBREGDETALLECONT" Width="1.5" PointX="12.625" PointY="4.5" />
+        <EntityTypeShape EntityType="SISTEMAEMPRESAModel.CNTBSALDOCONTABLE" Width="1.5" PointX="14.875" PointY="3.125" />
+        <AssociationConnector Association="SISTEMAEMPRESAModel.FK__AUDCNTBCA__IdCnt__5165187F" />
+        <AssociationConnector Association="SISTEMAEMPRESAModel.FK__AUDCNTBDE__IdCnt__5812160E" />
+        <AssociationConnector Association="SISTEMAEMPRESAModel.FK__CNTBREGDE__IdCnt__440B1D61" />
+        <AssociationConnector Association="SISTEMAEMPRESAModel.FK__CNTBREGDE__IdCnt__4316F928" />
+        <AssociationConnector Association="SISTEMAEMPRESAModel.FK__CNTBSALDO__IdCnt__4AB81AF0" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<SISTEMEMPRESA.Models.CNTBPLANDECUENTA>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutContabilidad.cshtml";
+}
+
+<h2>Plan De Cuentas</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdCntbPlanDeCuenta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.periodo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.detalle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.naturaleza)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdCntbPlanDeCuenta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.periodo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.detalle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.naturaleza)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado)
+        </td>
+        <td>
+            @Html.ActionLink("Actualizar", "Edit", new { id=item.IdCntbPlanDeCuenta }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.IdCntbPlanDeCuenta }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.IdCntbPlanDeCuenta })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Salir", "Index", "ModCont")
+</div>

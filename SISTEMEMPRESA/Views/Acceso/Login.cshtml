@@ -1,0 +1,112 @@
+﻿
+    @{
+        ViewBag.Title = "Acceso";
+        Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+    }
+    @*<h2>ACCESO AL SISTEMA</h2>
+<div class="row">
+        <form action="@Url.Content("~/Acceso/Login")" method="post">
+            <div class="form-control">
+                <label>Usuario del Sistema:</label>
+                <input type="text" id="UsuarioSistema" name="UsuarioSistema" />
+            </div>
+            <div class="form-control">
+                <label>Clave :</label>
+                <input type="password" id="clave" name="clave" />
+            </div>
+            <div class="form-control">
+                <input type="submit" class="btn btn-primary" id="BtnIngresar" name="BtnIngresar" />
+
+            </div>
+        </form>
+    </div>*@
+
+<head>
+    <meta charset="utf-8"/>
+    @*<link rel="stylesheet" href="~/Content/bootstrap.css"/>*@
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background: url(/image/fondo-ss.jpg) no-repeat center top;
+            background-size: cover;
+            font-family: sans-serif;
+            height: 100vh;
+        }
+        .login-box {
+            width: 320px;
+            height: 420px;
+            background-color:black;
+            color:white;
+            top:50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%,-50%);
+            box-sizing: border-box;
+            padding: 70px 30px;
+
+        }
+        .login-box .avatar{
+            width:100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            top: -50px;
+            left: calc(50% - 50px);
+        }
+
+        .login-box h1 {
+            margin: 0;
+            padding: 0 0 20px;
+            text-align:center;
+            font-size: 22px;
+        }
+
+        .login-box label{
+            margin: 0;
+            padding: 0;
+            font-weight:bold;
+            display: block;
+        }
+
+        .login-box input{
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .login-box input[type="text"],
+        .login-box input[type="password"]{
+            border: none;
+            border-bottom: 1px solid white;
+            background: transparent;
+            outline: none;
+            height: 40px;
+            color:white;
+            font-size: 16px;
+        }
+        
+        .login-box input[type="submit"]{
+            border: none;
+            outline: none;
+            height: 40px;
+            background-color:darkblue;
+            border-radius: 20px;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <img class="avatar" src="~/image/iconoUser.jpg" alt="LogoUsuario">
+        <h1>INGRESO AL SISTEMA</h1>
+        <form action="@Url.Content("~/Acceso/Login")" method="post">
+            <label>Usuario del Sistema</label>
+            <input type="text" id="UsuarioSistema" name="UsuarioSistema" placeholder="usuario" />
+            <label>Contraseña</label>
+            <input type="password" id="clave" name="clave" placeholder="clave" />
+            <input type="submit" value="ENTRAR" class="btn btn-primary" id="BtnIngresar" name="BtnIngresar" />
+        </form>
+    </div>
+
+</body>
+    

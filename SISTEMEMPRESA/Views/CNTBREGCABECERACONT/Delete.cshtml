@@ -1,0 +1,96 @@
+﻿@model SISTEMEMPRESA.Models.CNTBREGCABECERACONT
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutContabilidad.cshtml";
+}
+
+<h2>Eliminar Cabecera Contable</h2>
+
+<h4>¿Estas seguro de querer eliminar esta cabecera?</h4>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCntbRegCabeceraCont)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdCntbRegCabeceraCont)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.periodo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.periodo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreLote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreLote)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalDebe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalDebe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalHaber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalHaber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoContable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstadoContable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.observacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.observacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioSistema)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioSistema)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Atras", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,58 @@
+﻿@model SISTEMEMPRESA.Models.CNTBPLANDECUENTA
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutContabilidad.cshtml";
+}
+
+<h2>Detalle Plan De Cuenta</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCntbPlanDeCuenta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdCntbPlanDeCuenta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.periodo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.periodo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.detalle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detalle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.naturaleza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.naturaleza)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Actualizar", "Edit", new { id = Model.IdCntbPlanDeCuenta }) |
+    @Html.ActionLink("Atras", "Index")
+</p>
