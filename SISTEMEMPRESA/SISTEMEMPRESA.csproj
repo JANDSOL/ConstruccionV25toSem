@@ -137,6 +137,7 @@
     <Compile Include="Controllers\CNTBREGDETALLECONTsController.cs" />
     <Compile Include="Controllers\CNTBSALDOCONTABLEController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ModSeguController.cs" />
     <Compile Include="Controllers\ModContController.cs" />
     <Compile Include="Controllers\SEGDEPARTAMENTOesController.cs" />
     <Compile Include="Controllers\SEGMODULOesController.cs" />
@@ -320,6 +321,8 @@
     <Content Include="Views\AUDCNTBDETC\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutContabilidad.cshtml" />
     <Content Include="Views\ModCont\Index.cshtml" />
+    <Content Include="Views\ModSegu\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutSeguridad.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
