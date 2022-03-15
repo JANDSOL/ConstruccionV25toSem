@@ -1,15 +1,12 @@
 ﻿@model IEnumerable<SISTEMEMPRESA.Models.AUDCNTBDETC>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Auditorias Detalles Contables";
     Layout = "~/Views/Shared/_LayoutContabilidad.cshtml";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -64,11 +61,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CNTBREGDETALLECONT.GlosaContable)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdAudCntbDetC }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdAudCntbDetC }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdAudCntbDetC })
         </td>
     </tr>
 }

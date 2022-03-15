@@ -1,15 +1,12 @@
 ﻿@model IEnumerable<SISTEMEMPRESA.Models.AUDCNTBCABC>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Auditorias Cabeceras Contables";
     Layout = "~/Views/Shared/_LayoutContabilidad.cshtml";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -64,11 +61,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CNTBREGCABECERACONT.NombreLote)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdAudCntbCabC }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdAudCntbCabC }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdAudCntbCabC })
         </td>
     </tr>
 }

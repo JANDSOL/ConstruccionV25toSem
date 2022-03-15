@@ -1,15 +1,13 @@
 ﻿@model IEnumerable<SISTEMEMPRESA.Models.CNTBSALDOCONTABLE>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Saldos Contables";
     Layout = "~/Views/Shared/_LayoutContabilidad.cshtml";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -58,11 +56,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CNTBREGDETALLECONT.GlosaContable)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdCntbSaldoContable }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdCntbSaldoContable }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdCntbSaldoContable })
         </td>
     </tr>
 }
