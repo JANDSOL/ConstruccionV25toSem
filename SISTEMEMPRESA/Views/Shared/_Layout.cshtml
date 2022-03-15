@@ -1,43 +1,117 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="~/Content/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body style="background-color:aliceblue; border:2px solid white;">
-    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:black; border:2px solid white;">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="border:2px solid white;">
-                    <span class="dropdown item"></span>
-                    <span class="dropdown item"></span>
-                    <span class="dropdown item"></span>
-                </button>
-                @Html.ActionLink("EMPRESA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+<body>
+    <section id="main-page" class="page">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo-container">
+                    <div class="logo-container">
+                        <img class="logo-sidebar" src="~/image/icons8-theme-park-96.png" />
+                    </div>
+                    <div class="brand-name-container">
+                        <p class="brand-name">
+                            @Html.ActionLink("Sistema", "Index", "Home")<br />
+                            <span class="brand-subname">
+                                @Html.ActionLink("Empresa", "Index", "Home")
+                            </span>
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("MODULO SEGURIDAD", "Index", "ModSegu")</li>
-                    <li>@Html.ActionLink("MODULO CONTABILIDAD", "Index", "ModCont")</li>
+            <div class="sidebar-body">
+                <ul class="navigation-list">
+                    <li class="navigation-list-item one">
+                        <a class="navigation-link" href="/ModSegu">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <i class="fa-solid fa-shield"></i>
+                                </div>
+                                <div class="col-md-10">
+                                    Seguridad
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="navigation-list-item two">
+                        <a class="navigation-link" href="/ModCont">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                </div>
+                                <div class="col-md-10">
+                                    Contabilidad
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="navigation-list-item three">
+                        <a class="navigation-link" href="https://www.unemi.edu.ec/" target="_blank">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                </div>
+                                <div class="col-md-10">
+                                    Universidad
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="navigation-list-item four">
+                        <a class="navigation-link" href="/Home/About">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <i class="fa-solid fa-users"></i>
+                                </div>
+                                <div class="col-md-10">
+                                    Acerca de nosotros
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="navigation-list-item four">
+                        <a class="navigation-link" href="/Home/Contact">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div class="col-md-10">
+                                    Contactenos
+                                </div>
+                            </div>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
-    </div>
-
-        <div class="container body-content">
+        <div class="content">
+            <div class="navigationBar">
+                <button id="sidebarToggle" class="btn sidebarToggle">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
             @RenderBody()
+            <div class="footer-content">
             <hr />
             <footer>
                 <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
             </footer>
+            </div>
         </div>
+    </section>
 
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
+    <script src="~/Scripts/sidebar.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>

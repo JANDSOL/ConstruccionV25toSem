@@ -7,9 +7,44 @@
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <style>
+        body {
+            padding: 0px;
+        }
+        .navbar.navbar-inverse.navbar-fixed-top {
+            position: sticky;
+        }
+        /* Buttons Index Contabilidad */
+        .btn-rows {
+            margin: 30px 0px 40px 0px;
+            display: flex;
+            flex-wrap: wrap;
+            text-align: center;
+            justify-content: center;
+        }
+        .btn-rows a {
+            padding: 50px 0px;
+            width: 40%;
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .btn.conta {
+            color: #ffffff;
+            background-color: #000000;
+            margin: 4px 10px;
+        }
+        .btn.conta:hover {
+            border: 2px solid #000000;
+            color: #000000;
+            background-color: #ffffff;
+        }
+        .btn-rows a:hover {
+            font-weight: 600;
+        }
+    </style>
 </head>
-<body style="background-color:aliceblue; border:2px solid white;">
-    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:black; border:2px solid white;">
+<body style="background-color:aliceblue;">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:black;">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="border:2px solid white;">
